@@ -9,7 +9,7 @@
  *
  * @RED: 0 -> Red node
  * @BLACK: 1 -> Black node
- * @DOUBLE_BLACK:  2 -> Double-black node (used for deletion)
+ * @DOUBLE_BLACK: 2 -> Double-black node (used for deletion)
  */
 typedef enum rb_color_e
 {
