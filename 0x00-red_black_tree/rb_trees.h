@@ -7,8 +7,6 @@
 #define True 1
 #define False 0
 
-#define IsRoot(node) ((node == NULL) ? NULL : !node->parent)
-
 /**
  * enum rb_color_e - Possible color of a Red-Black tree
  *
