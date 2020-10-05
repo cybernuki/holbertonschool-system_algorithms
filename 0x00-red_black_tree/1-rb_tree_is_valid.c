@@ -9,9 +9,6 @@ int redViolation(const rb_tree_t *tree)
 
 	left = tree->left, right = tree->right;
 	// Red property and check wheter nodes are just red or black
-	int i = (tree->color == RED &&
-		 !(((!left) ? True : left->color == BLACK) && ((!right) ? True : right->color == BLACK)));
-	(void)i;
 	if ((tree->color == RED &&
 		 !(((!left) ? True : left->color == BLACK) && ((!right) ? True : right->color == BLACK))) ||
 		(tree->color != RED && tree->color != BLACK))
