@@ -8,13 +8,13 @@ int redViolation(const rb_tree_t *tree)
 		return (1);
 
 	left = tree->left, right = tree->right;
-	// Red property and check wheter nodes are just red or black
+	/* Red property and check wheter nodes are just red or black*/
 	if ((tree->color == RED &&
 		 !(((!left) ? True : left->color == BLACK) && ((!right) ? True : right->color == BLACK))) ||
 		(tree->color != RED && tree->color != BLACK))
 		return (0);
 
-	// BST property
+	/* BST property*/
 	if (!(((!left) ? True : left->n < tree->n) && ((!right) ? True : right->n >= tree->n)))
 		return (0);
 
