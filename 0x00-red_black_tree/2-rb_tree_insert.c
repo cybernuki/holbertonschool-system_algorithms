@@ -33,7 +33,7 @@ void insert_fixup(rb_tree_t **root, rb_tree_t *node)
 				leftRotate(parent, root);
 				COLOR_SWAP(parent, ancestor, tmpColor);
 			}
-			else if (LEFT_RIGHT_CASE(node))
+			else if (RIGHT_LEFT_CASE(node))
 				rigthRotate(node, root);
 
 			node = parent;
