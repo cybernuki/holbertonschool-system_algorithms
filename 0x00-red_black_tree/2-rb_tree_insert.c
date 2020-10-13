@@ -10,7 +10,6 @@ void insert_fixup(rb_tree_t **root, rb_tree_t *node)
 	rb_tree_t *parent = NULL, *uncle = NULL, *ancestor = NULL;
 	rb_color_t tmpColor = BLACK;
 
-	(void)root;
 	while ((parent = GETPARENT(node)) && SON_PARENT_RED(parent, node))
 	{
 		uncle = GETUNCLE(node), ancestor = GETANCESTOR(node);
