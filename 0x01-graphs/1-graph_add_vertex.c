@@ -10,7 +10,7 @@ vertex_t *graph_add_vertex(graph_t *graph, const char *str)
 {
 	vertex_t *newVertex = NULL, *index = NULL;
 
-	if (!graph)
+	if (!graph || !str)
 		return (NULL);
 
 	newVertex = calloc(sizeof(*newVertex), 1);
