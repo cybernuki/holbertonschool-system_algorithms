@@ -16,22 +16,25 @@ vertex_t *graph_add_vertex(graph_t *graph, const char *str)
 	newVertex = calloc(sizeof(*newVertex), 1);
 	if (!newVertex)
 		return (NULL);
-
 	newVertex->content = strdup(str);
+	if (!newVertex->content)
+	{
+		free(newVertex);
+		return (NULL);
+	}
 	index = graph->vertices;
-
 	if (!index)
 	{
 		graph->vertices = newVertex;
 		graph->nb_vertices++;
 		return (newVertex);
 	}
-
 	while (index)
 	{
 		if (!strcmp(index->content, newVertex->content))
 		{
 			free(newVertex->content);
+			free(newVertex);
 			return (NULL);
 		}
 		if (!index->next)
