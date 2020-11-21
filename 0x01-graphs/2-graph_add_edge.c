@@ -11,8 +11,22 @@
 int graph_add_edge(graph_t *graph, const char *src, const char *dest,
 				   edge_type_t type)
 {
+	vertex_t *source = NULL, *destination = NULL, *index = NULL;
 
 	if (EARLY_RETURN(graph, src, dest, type))
+		return (0);
+
+	index = graph->vertices;
+
+	while (index)
+	{
+		if (!strcmp(src, index->content))
+			source = index;
+		if (!strcmp(dest, index->content))
+			destination = index;
+		index = index->next;
+	}
+	if (!source || !destination)
 		return (0);
 
 	return (1);
