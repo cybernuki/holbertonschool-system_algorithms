@@ -68,6 +68,9 @@ typedef struct graph_s
     vertex_t    *vertices;
 } graph_t;
 
+#define EARLY_RETURN(graph,src, dest, type) (!graph || !src || !dest || \
+    !((int) strcmp(src, dest)) || (type != UNIDIRECTIONAL && type != BIDIRECTIONAL))
+
 
 graph_t *graph_create(void);
 vertex_t *graph_add_vertex(graph_t *graph, const char *str);
