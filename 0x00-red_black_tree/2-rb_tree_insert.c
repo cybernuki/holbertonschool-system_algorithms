@@ -64,7 +64,8 @@ rb_tree_t *rb_tree_insert(rb_tree_t **tree, int value)
 	while (current)
 	{
 		previous = current;
-		if (value == current->n) {
+		if (value == current->n)
+		{
 			free(current);
 			return (NULL);
 		}
