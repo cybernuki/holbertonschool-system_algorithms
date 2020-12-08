@@ -1,27 +1,27 @@
 #include "huffman.h"
 
 /**
- * huffman_tree - creates a huffman tree from data
- * @data: character array
- * @freq: frequency of char array
- * @size: size of array args
- * Return: root node of huffman tree
+ * huffman_tree - build a Huffman tree
+ * @data: array of characters
+ * @freq: array of associated character frequencies
+ * @size: size of both arrays
+ *
+ * Return: pointer to root node of Huffman tree or NULL on failure
  */
 binary_tree_node_t *huffman_tree(char *data, size_t *freq, size_t size)
 {
-	heap_t *heap = huffman_priority_queue(data, freq, size);
-	binary_tree_node_t *root;
+	heap_t *prio_q;
+	binary_tree_node_t *h_tree;
 
-	setbuf(stdout, NULL);
-	if (!heap)
+	if (!data || !freq || !size)
 		return (NULL);
-	while (heap->size > 1)
-	{
-		if (!huffman_extract_and_insert(heap))
-			return (NULL);
-	}
-	root = heap->root->data;
-	free(heap->root);
-	free(heap);
-	return (root);
+	prio_q = huffman_priority_queue(data, freq, size);
+	if (!prio_q)
+		return (NULL);
+	while (huffman_extract_and_insert(prio_q))
+		;
+	h_tree = prio_q->root->data;
+	free(prio_q->root);
+	free(prio_q);
+	return (h_tree);
 }
