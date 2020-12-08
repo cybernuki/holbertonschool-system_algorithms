@@ -39,6 +39,7 @@ binary_tree_node_t *binary_tree_node(binary_tree_node_t *parent,
 binary_tree_node_t *heap_insert(heap_t *heap, void *data);
 void *heap_extract(heap_t *heap);
 void heap_delete(heap_t *heap, void (*free_data)(void *));
+void free_tree(binary_tree_node_t *node, void (*free_data)(void *));
 
 size_t setBitNumber(size_t n);
 

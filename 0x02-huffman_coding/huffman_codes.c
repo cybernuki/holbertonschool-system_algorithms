@@ -1,6 +1,17 @@
 #include "huffman.h"
 
 /**
+ * free_data - free contents of data
+ * @data: pointer to data
+ */
+void free_data(void *data)
+{
+	if (!data)
+		return;
+	free(data);
+}
+
+/**
  * tree_decode - go throug the tree and find the codes
  * @node: is the current node,
  * @path: is a bit mask that represent the path
@@ -28,7 +39,6 @@ int tree_decode(binary_tree_node_t *node, size_t path)
 
 	result = tree_decode(node->left, path << 1);
 	result = result && tree_decode(node->right, (path << 1) + 1);
-
 	return (result);
 }
 
@@ -46,5 +56,7 @@ int huffman_codes(char *data, size_t *freq, size_t size)
 
 	if (!tree)
 		return (0);
+
+	free_tree(tree, free_data);
 	return (tree_decode(tree, 1));
 }
