@@ -16,7 +16,9 @@ void heapify_down(heap_t *heap)
 		if (!node->right)
 			child = node->left;
 		else
-			child = heap->data_cmp(node->left->data, node->right->data) <= 0 ? node->left : node->right;
+			child = heap->data_cmp(node->left->data, node->right->data) <= 0
+						? node->left
+						: node->right;
 		if (heap->data_cmp(node->data, child->data) < 0)
 			break;
 		tmp = node->data;
