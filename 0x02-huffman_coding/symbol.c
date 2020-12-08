@@ -8,7 +8,7 @@
  */
 symbol_t *symbol_create(char data, size_t freq)
 {
-	symbol_t *symbol = malloc(sizoeof(*symbol));
+	symbol_t *symbol = malloc(sizeof(*symbol));
 
 	if (!symbol)
 		return (NULL);
