@@ -43,10 +43,9 @@ heap_t *huffman_priority_queue(char *data, size_t *freq, size_t size)
 		symbol = symbol_create(data[index], freq[index]);
 		if (!symbol)
 			return (NULL);
-		nested = malloc(sizeof(*nested));
+		nested = binary_tree_node(NULL, symbol);
 		if (!nested)
 			return (NULL);
-		nested->data = symbol;
 		if (!heap_insert(queue, nested))
 			return (NULL);
 		index++;

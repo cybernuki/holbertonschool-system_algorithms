@@ -9,19 +9,11 @@ void free_tree(binary_tree_node_t *node, void (*free_data)(void *))
 {
 	if (!node)
 		return;
-	if (!node->left && !node->right)
-	{
-		if (free_data)
-			free_data(node->data);
-		free(node);
-		return;
-	}
-
 	free_tree(node->left, free_data);
 	free_tree(node->right, free_data);
-	free(node);
 	if (free_data)
 		free_data(node->data);
+	free(node);
 }
 
 /**
