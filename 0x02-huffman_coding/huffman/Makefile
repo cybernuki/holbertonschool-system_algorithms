@@ -1,0 +1,4 @@
+
+
+huffman:
+	gcc *.c
