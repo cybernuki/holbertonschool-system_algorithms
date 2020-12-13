@@ -1,4 +1,3 @@
-
-
 huffman:
-	gcc *.c
+
+		gcc ./main.c -o huffman
