@@ -5,6 +5,7 @@
 #include "queues.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * struct point_s - Structure storing coordinates
