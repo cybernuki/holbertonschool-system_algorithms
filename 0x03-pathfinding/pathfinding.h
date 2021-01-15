@@ -6,6 +6,25 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
+
+#define NUM_DIRECTIONS 4
+#define h(x1, y1, x2, y2) (sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2)))
+
+/**
+ * enum direction_s - which way to go
+ * @RIGHT: go east
+ * @BOTTOM: go down
+ * @LEFT: go west
+ * @TOP: go up
+ */
+enum direction_s
+{
+	RIGHT,
+	BOTTOM,
+	LEFT,
+	TOP
+};
 
 /**
  * struct point_s - Structure storing coordinates
