@@ -96,8 +96,8 @@ int update_path(queue_t **path, int x, int y)
  * Return: 1 on success, 0
  */
 int recursive_backtrack(char **map, int **visited, int x, int y,
-						 point_t const *target, queue_t **path,
-						 point_t *directions, int rows, int cols)
+						point_t const *target, queue_t **path,
+						point_t *directions, int rows, int cols)
 {
 	int i;
 
@@ -117,7 +117,7 @@ int recursive_backtrack(char **map, int **visited, int x, int y,
 	for (i = 0; i < NUM_DIRECTIONS; i++)
 	{
 		if (recursive_backtrack(map, visited, x + directions[i].x,
-			y + directions[i].y, target, path, directions, rows, cols) == 1)
+								y + directions[i].y, target, path, directions, rows, cols) == 1)
 			return (update_path(path, x, y));
 	}
 	return (0);
@@ -148,7 +148,7 @@ queue_t *backtracking_array(char **map, int rows, int cols,
 		return (NULL);
 
 	itWorked = (recursive_backtrack(map, visited, start->x, start->y,
-							target, &path, directions, rows, cols));
+									target, &path, directions, rows, cols));
 
 	for (i = 0; i < rows; i++)
 		free(visited[i]);
