@@ -9,7 +9,25 @@
 #include <limits.h>
 
 #define NUM_DIRECTIONS 4
+#define euclidean_dist(x1, y1, x2, y2) sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2))
 #define h(x1, y1, x2, y2) (sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2)))
+
+/**
+ * struct vertex_queue_s - queue used for Dijkstra's algorithm
+ * @vq_src: pointer to source vertex queue node
+ * @dest: pointer to destination vertex node
+ * @weight: weight of going from src to dest
+ * @dist: euclidean distance from dest to target vertex
+ * @next: pointer to next queue node
+ */
+typedef struct vertex_queue_s
+{
+	struct vertex_queue_s *vq_src;
+	vertex_t *dest;
+	int weight;
+	double dist;
+	struct vertex_queue_s *next;
+} vertex_queue_t;
 
 /**
  * enum direction_s - which way to go
